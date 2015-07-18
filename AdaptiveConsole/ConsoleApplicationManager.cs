@@ -36,9 +36,9 @@ namespace AdaptiveConsole
             try
             {
                 Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                AdaptiveConsoleConfigHandler configHandler = (AdaptiveConsoleConfigHandler)config.GetSection("AdaptiveConsole");
+                AdaptiveConsoleConfiguration configHandler = (AdaptiveConsoleConfiguration)config.GetSection("AdaptiveConsole");
                 Type type = Type.GetType(configHandler.Provider);
-                object[] objargs = new object[] { args };
+                object[] objargs = { args };
                 return (ConsoleApplicationBase)Activator.CreateInstance(type, objargs);
             }
             catch (Exception e)
@@ -55,18 +55,13 @@ namespace AdaptiveConsole
         /// <param name="args">The command line arguments.</param>
         public static void RunApplication(string[] args)
         {
-            try
-            {
-                ConsoleApplicationBase consoleApplication = GetApplication(args);
-                consoleApplication.Init();
-                consoleApplication.Run();
-                consoleApplication.Done();
-            }
-            catch
-            {
-                throw;
-            }
+            ConsoleApplicationBase consoleApplication = GetApplication(args);
+            consoleApplication.Init();
+            consoleApplication.Run();
+            consoleApplication.Done();
         }
+
+        //public static void RunApplication()
         #endregion
     }
 }

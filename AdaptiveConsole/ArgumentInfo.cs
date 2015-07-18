@@ -93,9 +93,7 @@ namespace AdaptiveConsole
             var query = from p in args
                         where p.Category == ArgumentCategory.Parameter
                         select p;
-            if (query.Count() > 0)
-                return true;
-            return false;
+            return query.Any();
         }
 
         /// <summary>

@@ -15,6 +15,7 @@
  * 9/20/2008     Added Default field on the option.     3.5.3182.35766  Sunny Chen
  * 9/23/2008     BUG FIX #1                             3.5.3189.17673  Sunny Chen
  * 11/27/2008    Modified                               3.5.3253.15384  Sunny Chen
+ * 7/18/2015     Refactored                             4.5             Sunny Chen
  * ---------------------------------------------------------------------------- */
 
 using System;
@@ -98,10 +99,6 @@ namespace AdaptiveConsole
         #endregion
 
         #region Private Fields
-        /// <summary>
-        /// The System.Configuration instance that holds the configuration information.
-        /// </summary>
-        private Configuration config;
 
         /// <summary>
         /// Refers to the methods that takes the option contract, contract property information and
@@ -697,7 +694,7 @@ namespace AdaptiveConsole
         /// <summary>
         /// Gets or sets the configuration handler for the AdaptiveConsole framework.
         /// </summary>
-        protected AdaptiveConsoleConfigHandler AdaptiveConsoleConfig { get; set; }
+        protected AdaptiveConsoleConfiguration AdaptiveConsoleConfig { get; set; }
 
         /// <summary>
         /// Gets the template string which defines the banner format of the help screen.
@@ -748,11 +745,25 @@ namespace AdaptiveConsole
         #endregion
 
         #region Constructors
+
         /// <summary>
-        /// Initializes the console application.
+        /// Initializes a new instance of the <see cref="ConsoleApplicationBase"/> class.
         /// </summary>
-        /// <param name="args">The command line arguments.</param>
-        public ConsoleApplicationBase(string[] args)
+        /// <param name="args">The arguments.</param>
+        protected ConsoleApplicationBase(string[] args)
+            : this(
+                (AdaptiveConsoleConfiguration)
+                    (ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)).GetSection(
+                        CONFIG_SECTION_NAME), args)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConsoleApplicationBase"/> class.
+        /// </summary>
+        /// <param name="configuration">The configuration.</param>
+        /// <param name="args">The arguments.</param>
+        protected ConsoleApplicationBase(AdaptiveConsoleConfiguration configuration, string[] args)
         {
             // Creates the argument information list.
             this.Arguments = new List<ArgumentInfo>();
@@ -761,8 +772,7 @@ namespace AdaptiveConsole
                 this.Arguments.Add(new ArgumentInfo(arg, ArgumentCategory.Parameter));
 
             // Gets the application configuration.
-            config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            this.AdaptiveConsoleConfig = (AdaptiveConsoleConfigHandler)config.GetSection(CONFIG_SECTION_NAME);
+            this.AdaptiveConsoleConfig = configuration;
 
             // Creates the option contract repository.
             this.OptionContractRepository = new List<OptionContractInfo>();

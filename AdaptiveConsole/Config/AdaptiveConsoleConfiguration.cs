@@ -13,6 +13,7 @@
  * DATE          DESCRIPTION                            VERSION         UPDATED_BY
  * 9/16/2008     Created                                3.5.3182.35766  Sunny Chen
  * 11/27/2008    Modified                               3.5.3253.15384  Sunny Chen
+ * 7/18/2015     Modified                               4.5             Sunny Chen
  * ---------------------------------------------------------------------------- */
 
 using System.Configuration;
@@ -22,7 +23,7 @@ namespace AdaptiveConsole.Config
     /// <summary>
     /// Provides the configuration handler for the AdaptiveConsole application.
     /// </summary>
-    public class AdaptiveConsoleConfigHandler : ConfigurationSection
+    public class AdaptiveConsoleConfiguration : ConfigurationSection
     {
         #region Public Properties
         /// <summary>

@@ -61,7 +61,7 @@
   <ItemGroup>
     <Compile Include="ArgumentInfo.cs" />
     <Compile Include="ArgumentMissingException.cs" />
-    <Compile Include="Config\AdaptiveConsoleConfigHandler.cs" />
+    <Compile Include="Config\AdaptiveConsoleConfiguration.cs" />
     <Compile Include="Config\RepositoryConfigElement.cs" />
     <Compile Include="Config\RepositoryConfigElementCollection.cs" />
     <Compile Include="ConsoleApplicationBase.cs" />
