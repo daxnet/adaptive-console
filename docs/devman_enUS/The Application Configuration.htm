@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>The Application Configuration</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+
+</head>
+
+<BODY>
+<P><FONT face=Verdana size=2>ACF will configure your console application by 
+using application configuration file, so firstly you should add a App.config 
+file to your console application.</FONT></P>
+<OL>
+  <LI><FONT face=Verdana size=2>Right click on the <FONT face=Courier 
+  color=#800000>catool</FONT> application in <STRONG>Solution Explorer</STRONG>, 
+  select <STRONG>Add | New Item</STRONG></FONT> 
+  <LI><FONT face=Verdana size=2>In the <STRONG>Add New Item</STRONG> dialog, 
+  select <STRONG>Application Configuration File</STRONG> and click 
+  <STRONG>Add</STRONG></FONT> 
+  <LI><FONT face=Verdana size=2>Modify the App.config file like the 
+  following:<BR>
+  <TABLE style="BORDER-COLLAPSE: collapse" borderColor=#000000 cellSpacing=0 
+  cellPadding=2 width="90%" border=1>
+    <TBODY>
+    <TR>
+      <TD>
+        <DIV 
+        style="FONT-SIZE: 10pt; BACKGROUND: white; COLOR: black; FONT-FAMILY: Courier New">
+        <P style="MARGIN: 0px"><SPAN 
+        style="COLOR: #2b91af">&nbsp;&nbsp;&nbsp;&nbsp;1</SPAN>&nbsp;<SPAN 
+        style="COLOR: blue">&lt;?</SPAN><SPAN 
+        style="COLOR: #a31515">xml</SPAN><SPAN style="COLOR: blue"> </SPAN><SPAN 
+        style="COLOR: red">version</SPAN><SPAN 
+        style="COLOR: blue">=</SPAN>"<SPAN style="COLOR: blue">1.0</SPAN>"<SPAN 
+        style="COLOR: blue"> </SPAN><SPAN 
+        style="COLOR: red">encoding</SPAN><SPAN 
+        style="COLOR: blue">=</SPAN>"<SPAN 
+        style="COLOR: blue">utf-8</SPAN>"<SPAN style="COLOR: blue"> 
+        ?&gt;</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN 
+        style="COLOR: #2b91af">&nbsp;&nbsp;&nbsp;&nbsp;2</SPAN>&nbsp;<SPAN 
+        style="COLOR: blue">&lt;</SPAN><SPAN 
+        style="COLOR: #a31515">configuration</SPAN><SPAN 
+        style="COLOR: blue">&gt;</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN 
+        style="COLOR: #2b91af">&nbsp;&nbsp;&nbsp;&nbsp;3</SPAN>&nbsp;<SPAN 
+        style="COLOR: blue">&nbsp; &lt;</SPAN><SPAN 
+        style="COLOR: #a31515">configSections</SPAN><SPAN 
+        style="COLOR: blue">&gt;</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN 
+        style="COLOR: #2b91af">&nbsp;&nbsp;&nbsp;&nbsp;4</SPAN>&nbsp;<SPAN 
+        style="COLOR: blue">&nbsp; &nbsp; &lt;</SPAN><SPAN 
+        style="COLOR: #a31515">section</SPAN><SPAN style="COLOR: blue"> 
+        </SPAN><SPAN style="COLOR: red">name</SPAN><SPAN 
+        style="COLOR: blue">=</SPAN>"<SPAN 
+        style="COLOR: blue">AdaptiveConsole</SPAN>"<SPAN style="COLOR: blue"> 
+        </SPAN></P>
+        <P style="MARGIN: 0px"><SPAN 
+        style="COLOR: #2b91af">&nbsp;&nbsp;&nbsp;&nbsp;5</SPAN>&nbsp;<SPAN 
+        style="COLOR: blue">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+        </SPAN><SPAN style="COLOR: red">type</SPAN><SPAN 
+        style="COLOR: blue">=</SPAN>"<SPAN 
+        style="COLOR: blue">AdaptiveConsole.Config.AdaptiveConsoleConfigHandler, 
+        AdaptiveConsole</SPAN>"<SPAN style="COLOR: blue">/&gt;</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN 
+        style="COLOR: #2b91af">&nbsp;&nbsp;&nbsp;&nbsp;6</SPAN>&nbsp;<SPAN 
+        style="COLOR: blue">&nbsp; &lt;/</SPAN><SPAN 
+        style="COLOR: #a31515">configSections</SPAN><SPAN 
+        style="COLOR: blue">&gt;</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN 
+        style="COLOR: #2b91af">&nbsp;&nbsp;&nbsp;&nbsp;7</SPAN>&nbsp;<SPAN 
+        style="COLOR: blue">&nbsp; &lt;</SPAN><SPAN 
+        style="COLOR: #a31515">AdaptiveConsole</SPAN><SPAN style="COLOR: blue"> 
+        </SPAN><SPAN style="COLOR: red">provider</SPAN><SPAN 
+        style="COLOR: blue">=</SPAN>"<SPAN 
+        style="COLOR: blue">Catool.Provider.CatoolApplication, 
+        Catool.Provider</SPAN>"<SPAN style="COLOR: blue">&gt;</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN 
+        style="COLOR: #2b91af">&nbsp;&nbsp;&nbsp;&nbsp;8</SPAN>&nbsp;<SPAN 
+        style="COLOR: blue">&nbsp; &nbsp; &lt;</SPAN><SPAN 
+        style="COLOR: #a31515">repositories</SPAN><SPAN 
+        style="COLOR: blue">&gt;</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN 
+        style="COLOR: #2b91af">&nbsp;&nbsp;&nbsp;&nbsp;9</SPAN>&nbsp;<SPAN 
+        style="COLOR: blue">&nbsp; &nbsp; &nbsp; &lt;</SPAN><SPAN 
+        style="COLOR: #a31515">repository</SPAN><SPAN style="COLOR: blue"> 
+        </SPAN><SPAN style="COLOR: red">name</SPAN><SPAN 
+        style="COLOR: blue">=</SPAN>"<SPAN 
+        style="COLOR: blue">contracts</SPAN>"<SPAN style="COLOR: blue"> 
+        </SPAN><SPAN style="COLOR: red">assembly</SPAN><SPAN 
+        style="COLOR: blue">=</SPAN>"<SPAN 
+        style="COLOR: blue">Catool.Contracts</SPAN>"<SPAN 
+        style="COLOR: blue">/&gt;</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN 
+        style="COLOR: #2b91af">&nbsp;&nbsp;&nbsp;10</SPAN>&nbsp;<SPAN 
+        style="COLOR: blue">&nbsp; &nbsp; &lt;/</SPAN><SPAN 
+        style="COLOR: #a31515">repositories</SPAN><SPAN 
+        style="COLOR: blue">&gt;</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN 
+        style="COLOR: #2b91af">&nbsp;&nbsp;&nbsp;11</SPAN>&nbsp;<SPAN 
+        style="COLOR: blue">&nbsp; &lt;/</SPAN><SPAN 
+        style="COLOR: #a31515">AdaptiveConsole</SPAN><SPAN 
+        style="COLOR: blue">&gt;</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN 
+        style="COLOR: #2b91af">&nbsp;&nbsp;&nbsp;12</SPAN>&nbsp;<SPAN 
+        style="COLOR: blue">&lt;/</SPAN><SPAN 
+        style="COLOR: #a31515">configuration</SPAN><SPAN 
+        style="COLOR: blue">&gt;</SPAN></P></DIV><!--EndFragment--></TD></TR></TBODY></TABLE></FONT></LI></OL>
+<P><FONT face=Courier size=2></FONT>&nbsp;</P></BODY>
+</html>

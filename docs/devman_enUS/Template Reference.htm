@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Template Reference</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+
+</head>
+
+<BODY>
+<P><FONT face=Verdana size=2>ACF supports the following templates while you are 
+overriding the <FONT face=Courier color=#800000>BannerTemplate</FONT> and <FONT 
+face=Courier color=#800000>HelpBodyTemplate</FONT> methods in your console 
+application provider.</FONT></P>
+<P>
+<TABLE style="WIDTH: 100%; BORDER-COLLAPSE: collapse" borderColor=#000000 
+cellSpacing=0 cellPadding=2 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="20%">
+      <P align=center><FONT face=Verdana 
+      size=2><STRONG>Template</STRONG></FONT></P></TD>
+    <TD width="30%">
+      <P align=center><FONT face=Verdana 
+      size=2><STRONG>Description</STRONG></FONT></P></TD>
+    <TD width="50%">
+      <P align=center><FONT face=Verdana 
+      size=2><STRONG>Remarks</STRONG></FONT></P></TD></TR>
+  <TR>
+    <TD width="20%"><FONT face=Verdana size=2>&lt;%app_asm_ver%&gt;</FONT></TD>
+    <TD width="30%"><FONT face=Verdana size=2>The value of the <FONT 
+      face=Courier color=#800000>AssemblyVersion</FONT> property in the 
+      entry&nbsp;assembly attribute.</FONT></TD>
+    <TD width="50%"><FONT face=Verdana size=2>&nbsp;*</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT face=Verdana 
+size=2>&lt;%app_asm_title%&gt;</FONT></TD>
+    <TD width="30%"><FONT face=Verdana size=2>The value of the&nbsp;<FONT 
+      face=Courier color=#800000>AssemblyTitle</FONT> property in the 
+      entry&nbsp;assembly attribute.</FONT></TD>
+    <TD width="50%"><FONT face=Verdana size=2>&nbsp;*</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT face=Verdana size=2>&lt;%app_asm_desc%&gt;</FONT></TD>
+    <TD width="30%"><FONT face=Verdana size=2>The value of the&nbsp;<FONT 
+      face=Courier color=#800000>AssemblyDescription</FONT> property in the 
+      entry&nbsp;assembly attribute.</FONT></TD>
+    <TD width="50%"><FONT face=Verdana size=2>&nbsp;*</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT face=Verdana 
+    size=2>&lt;%app_asm_product%&gt;</FONT></TD>
+    <TD width="30%"><FONT face=Verdana size=2>The value of the <FONT 
+      face=Courier color=#800000>AssemblyProduct</FONT> property in the 
+      entry&nbsp;assembly attribute.</FONT></TD>
+    <TD width="50%"><FONT face=Verdana size=2>&nbsp;*</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT face=Verdana 
+      size=2>&lt;%app_asm_copyright%&gt;</FONT></TD>
+    <TD width="30%"><FONT face=Verdana size=2>The value of the&nbsp;<FONT 
+      face=Courier color=#800000>AssemblyCopyright</FONT> property in the 
+      entry&nbsp;assembly attribute.</FONT></TD>
+    <TD width="50%"><FONT face=Verdana size=2>&nbsp;*</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT face=Verdana 
+    size=2>&lt;%app_asm_company%&gt;</FONT></TD>
+    <TD width="30%"><FONT face=Verdana size=2>The value of the&nbsp;<FONT 
+      face=Courier color=#800000>AssemblyCompany</FONT> property in the 
+      entry&nbsp;assembly attribute.</FONT></TD>
+    <TD width="50%"><FONT face=Verdana size=2>&nbsp;*</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT face=Verdana size=2>&lt;%app_logo%&gt;</FONT></TD>
+    <TD width="30%"><FONT face=Verdana size=2>The logo string of the console 
+      application.</FONT></TD>
+    <TD width="50%"><FONT face=Verdana size=2>This is the string returned by 
+      the <FONT face=Courier color=#800000>Logo</FONT>&nbsp;abstract property of 
+      <FONT face=Courier color=#800000>ConsoleApplicationBase</FONT> which must 
+      be overrided by the application provider.</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT face=Verdana size=2>&lt;%app_desc%&gt;</FONT></TD>
+    <TD width="30%"><FONT face=Verdana size=2>The description string of the 
+      console application</FONT></TD>
+    <TD width="50%"><FONT face=Verdana size=2>This is the string returned by 
+      the <FONT face=Courier color=#800000>Description</FONT> abstract property 
+      of <FONT face=Courier color=#800000>ConsoleApplicationBase</FONT> which 
+      must be overrided by the application provider.</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT face=Verdana 
+size=2>&lt;%app_syn_lines%&gt;</FONT></TD>
+    <TD width="30%"><FONT face=Verdana size=2>The console application syntax 
+      lines that are generated automatically by ACF.</FONT></TD>
+    <TD width="50%">
+      <P><FONT face=Verdana size=2>For example, in catool application, it refers 
+      to the following lines in the help screen:</FONT></P>
+      <P><FONT face=Courier color=#800000 size=2>catool.exe &lt;/method|/m:&gt; 
+      [/nologo] p1 p2<BR>catool.exe /version|/ver</FONT></P></TD></TR>
+  <TR>
+    <TD width="20%"><FONT face=Verdana 
+size=2>&lt;%app_syn_descs%&gt;</FONT></TD>
+    <TD width="30%"><FONT face=Verdana size=2>The detailed syntax description 
+      for each syntax line and each argument in the syntax.</FONT></TD>
+    <TD width="50%">
+      <P><FONT face=Verdana size=2>For example, in catool application, it refers 
+      to the following lines in the help screen:</FONT></P>
+      <P><FONT face=Courier color=#800000 size=2>&gt; Performs arithmetic 
+      calculation<BR>&nbsp; /method|/m:value 
+      (required):<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Specifies the 
+      calculation 
+      method<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      add: Performs an addition 
+      calculation<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      sub: Performs a subtraction 
+      calculation<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      mul: Performs a multiplication 
+      calculation<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      div: Performs a division calculation</FONT></P>
+      <P><FONT face=Courier color=#800000 size=2>&nbsp; 
+      [/nologo]:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Suppress the 
+      display of banner information</FONT></P>
+      <P><FONT face=Courier color=#800000 size=2>&gt; Display the version 
+      information<BR>&nbsp; 
+      /version|/ver:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Display the 
+      version information</FONT></P></TD></TR></TBODY></TABLE></P>
+<P><FONT face=Verdana size=2>* These templates refer to the assembly properties 
+set on the entry assembly (Commonly the .exe console application 
+assembly):<BR></P>
+<P align=center><IMG alt="" src="images/asminfo.png"></P></FONT></BODY>
+</html>

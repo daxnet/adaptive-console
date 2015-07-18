@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>The Application Entry</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+
+</head>
+
+<BODY>
+<P><FONT face=Verdana size=2>Last step now, modify the application entry like 
+this:</FONT></P>
+<P>
+<TABLE style="BORDER-COLLAPSE: collapse" borderColor=#000000 cellSpacing=0 
+cellPadding=2 width="95%" border=1>
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV 
+      style="FONT-SIZE: 10pt; BACKGROUND: white; COLOR: black; FONT-FAMILY: Courier New">
+      <P style="MARGIN: 0px"><SPAN style="COLOR: blue">using</SPAN> System;</P>
+      <P style="MARGIN: 0px"><SPAN style="COLOR: blue">using</SPAN> 
+      AdaptiveConsole;</P>
+      <P style="MARGIN: 0px">&nbsp;</P>
+      <P style="MARGIN: 0px"><SPAN style="COLOR: blue">namespace</SPAN> 
+      catool</P>
+      <P style="MARGIN: 0px">{</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+      style="COLOR: blue">class</SPAN> <SPAN 
+      style="COLOR: #2b91af">Program</SPAN></P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; {</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+      style="COLOR: blue">static</SPAN> <SPAN style="COLOR: blue">void</SPAN> 
+      Main(<SPAN style="COLOR: blue">string</SPAN>[] args)</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">try</SPAN></P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; {</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+      style="COLOR: #2b91af">ConsoleApplicationManager</SPAN>.RunApplication(args);</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; }</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">catch</SPAN> (<SPAN 
+      style="COLOR: #2b91af">Exception</SPAN> ex)</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; {</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">if</SPAN> 
+      (ex.InnerException != <SPAN style="COLOR: blue">null</SPAN>)</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ex = 
+      ex.InnerException;</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+      style="COLOR: #2b91af">Console</SPAN>.WriteLine(ex.Message);</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+      style="COLOR: #2b91af">Console</SPAN>.WriteLine(ex.StackTrace);</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; }</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; }</P>
+      <P 
+style="MARGIN: 0px">}</P></DIV><!--EndFragment--></TD></TR></TBODY></TABLE></P>
+<P><FONT face=Verdana size=2>Congratulations, you have reached the goal! Let's 
+start to play with the <FONT face=Courier color=#800000>catool</FONT> 
+application in the next chapter.</FONT></P></BODY>
+</html>

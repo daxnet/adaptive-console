@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>OptionAttribute</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+
+</head>
+
+<BODY>
+<P><FONT face=Verdana size=2><FONT face=Courier 
+color=#800000>OptionAttribute</FONT> is applied on the properties of the option 
+contract class, it is for getting the value of the corresponding argument when 
+the argument is parsed.</FONT></P>
+<P><FONT face=Verdana size=2>Consider the following code snippet that we have 
+mentioned before:</FONT></P>
+<P>
+<TABLE style="BORDER-COLLAPSE: collapse" borderColor=#000000 cellSpacing=0 
+cellPadding=2 width="95%" border=1>
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV 
+      style="FONT-SIZE: 10pt; BACKGROUND: white; COLOR: black; FONT-FAMILY: Courier New">
+      <P style="MARGIN: 0px">[</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+      style="COLOR: #2b91af">Option</SPAN>(</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Name=<SPAN 
+      style="COLOR: #a31515">"/method;/m"</SPAN>,</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Type=<SPAN 
+      style="COLOR: #2b91af">OptionType</SPAN>.SingleValue,</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      Description=<SPAN style="COLOR: #a31515">"Specifies the calculation 
+      method\n"</SPAN>+</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+      style="COLOR: #a31515">"\t\tadd: Performs an addition 
+      calculation\n"</SPAN>+</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+      style="COLOR: #a31515">"\t\tsub: Performs a subtraction 
+      calculation\n"</SPAN>+</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+      style="COLOR: #a31515">"\t\tmul: Performs a multiplication 
+      calculation\n"</SPAN>+</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+      style="COLOR: #a31515">"\t\tdiv: Performs a division 
+      calculation"</SPAN>,</P>
+      <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+      Required=<SPAN style="COLOR: blue">true</SPAN>)</P>
+      <P style="MARGIN: 0px">]</P>
+      <P style="MARGIN: 0px"><SPAN style="COLOR: blue">public</SPAN> <SPAN 
+      style="COLOR: blue">string</SPAN> Method { <SPAN 
+      style="COLOR: blue">get</SPAN>; <SPAN style="COLOR: blue">set</SPAN>; 
+      }</P></DIV><!--EndFragment--></TD></TR></TBODY></TABLE></P>
+<P><FONT face=Verdana size=2>The argument (option) here is a single value 
+option, which means user should provide a "/method:<EM>value</EM>" or 
+"/m:<EM>value</EM>" argument when using the command line. For ACF, it will use 
+the value of the argument (<EM>value</EM> here) to populate the <FONT 
+face=Courier>Method</FONT> property.</FONT></P>
+<P><FONT face=Verdana size=2>There is a question here, what type should I take 
+for the property&nbsp;when I apply the <FONT face=Courier 
+color=#800000>OptionAttribute</FONT> on it? In the above example, it is obvious 
+that we should use a <FONT face=Courier color=#0000ff>string</FONT> property for 
+the single value option, because no matter what type the value is, it is better 
+to be stored in&nbsp;the <FONT face=Courier color=#0000ff>string</FONT> field. 
+Following table shows the relationship between the option type and its 
+corresponding property type.</FONT></P>
+<P>
+<TABLE style="BORDER-COLLAPSE: collapse" borderColor=#000000 cellSpacing=0 
+cellPadding=2 width="95%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="50%">
+      <P align=left><FONT face=Verdana size=2><STRONG>Option 
+      Type</STRONG></FONT></P></TD>
+    <TD>
+      <P align=left><FONT face=Verdana size=2><STRONG>Property 
+      Type</STRONG></FONT></P></TD></TR>
+  <TR>
+    <TD width="50%"><FONT face=Verdana size=2>SingleValue</FONT></TD>
+    <TD><FONT face=Courier size=2>System.String</FONT></TD></TR>
+  <TR>
+    <TD width="50%">
+      <P><FONT face=Verdana size=2>ValueList</FONT></P></TD>
+    <TD><FONT face=Courier size=2>System.Array</FONT></TD></TR>
+  <TR>
+    <TD width="50%"><FONT face=Verdana size=2>Switch</FONT></TD>
+    <TD><FONT face=Courier 
+size=2>System.Boolean</FONT></TD></TR></TBODY></TABLE></P>
+<P><FONT face=Verdana size=2><STRONG><FONT 
+style="BACKGROUND-COLOR: #ffff00">Note</FONT></STRONG>: Arguments that are the 
+type of Parameter are stored in a <FONT face=Courier>System.String</FONT> field. 
+For more information about Parameter type, please refer to the <A href="Parameter Type.htm">Parameter Type</A> 
+chapter.</FONT></P>
+<P><FONT face=Verdana size=2>Following is the detailed description and remarks 
+of the properties in the <FONT face=Courier color=#800000>OptionAttribute</FONT> 
+class.</FONT></P>
+<P><FONT face=Verdana size=2>
+<TABLE style="WIDTH: 95%; BORDER-COLLAPSE: collapse" borderColor=#000000 
+cellSpacing=0 cellPadding=2 width="95%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="20%">
+      <P align=center><FONT size=2><STRONG>Property</STRONG></FONT></P></TD>
+    <TD width="40%">
+      <P align=center><FONT size=2><STRONG>Description</STRONG></FONT></P></TD>
+    <TD width="40%">
+      <P align=center><FONT size=2><STRONG>Remarks</STRONG></FONT></P></TD></TR>
+  <TR>
+    <TD width="20%"><FONT size=2>Name</FONT></TD>
+    <TD width="40%"><FONT size=2>Name of the option</FONT></TD>
+    <TD width="40%"><FONT size=2>It has the same meaning with the <FONT 
+      face=Courier color=#800000>Argument</FONT> property of the <FONT 
+      face=Courier color=#800000>OptionContractAttribute</FONT>. It defines the 
+      name of the option. Use semicolon ";" to separate the different instance 
+      of the names. For example: "/input;/i".</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT size=2>Description</FONT></TD>
+    <TD width="40%"><FONT size=2>Description of the option</FONT></TD>
+    <TD width="40%"><FONT size=2>This description text will be used for 
+      generating the help information that will be shown on the help screen. It 
+      is a best practice that specify the Description property for each option 
+      in your contract.</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT size=2>Type</FONT></TD>
+    <TD width="40%"><FONT size=2>Type of the option</FONT></TD>
+    <TD width="40%"><FONT size=2>ACF supports two categories (four types) of 
+      options. For more information about the option type please refer to A<A href="Option Types.htm">rgument (Option) 
+      Categories and Types</A> chapter.</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT size=2>Required</FONT></TD>
+    <TD width="40%"><FONT size=2>Indicates if the option is required 
+      (mandatory)</FONT></TD>
+    <TD width="40%"><FONT size=2>The default value is true, which means users 
+      of the application must provide the option in the command line. 
+  </FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT size=2>CaseSensitive</FONT></TD>
+    <TD width="40%"><FONT size=2>Specifies if the Option is case 
+      sensitive</FONT></TD>
+    <TD width="40%"><FONT size=2>For example, if the CaseSensitive property is 
+      set to true, "/input" and "/Input" are two different options.</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT size=2>ValueSeparator</FONT></TD>
+    <TD width="40%"><FONT size=2>Specifies the value separator character for 
+      the values of an option</FONT></TD>
+    <TD width="40%"><FONT size=2>It just makes sense for ValueList options. 
+      For ValueList options, users can use the separator character to separate 
+      the values specified. For example, when this property is set to ",", users 
+      must use the comma to separate the values in the ValueList option, like 
+      "/inputs:a<STRONG><FONT color=#800000>,</FONT></STRONG>b<STRONG><FONT 
+      color=#800000>,</FONT></STRONG>c". When this property is set to ";", users 
+      must use the semicolon to separate the values, like 
+      "/inputs:a<STRONG><FONT color=#800000>;</FONT></STRONG>b<STRONG><FONT 
+      color=#800000>;</FONT></STRONG>c". The default value of this property is 
+      ',' (comma).</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT size=2>Default</FONT></TD>
+    <TD width="40%"><FONT size=2>Specifies the default value when the option 
+      is not required (mandatory)</FONT></TD>
+    <TD width="40%"><FONT size=2>When the Required property is set to false, 
+      Give the option a default value by using this 
+  property.</FONT></TD></TR></TBODY></TABLE></FONT></P></BODY>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Syntaxes and Option Contracts</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+
+</head>
+
+<BODY>
+<P><FONT face=Verdana size=2>Syntax and Option Contract represents the same 
+thing in ACF. From the end user's point of view, each combination of the 
+arguments that provide specific functionality is called Syntax in console 
+applications. For historical reason, ACF uses Option Contract to represent the 
+concept of Syntax.</FONT></P>
+<P><FONT face=Verdana size=2>Please look at the following screen provided by 
+xsd.exe. In this screen, we can find four different syntaxes (or, say Option 
+Contracts), each of which can provide specific functionality. </FONT></P>
+<P><FONT face=Verdana size=2>
+<TABLE style="WIDTH: 95%; BORDER-COLLAPSE: collapse" borderColor=#000000 
+cellSpacing=0 cellPadding=2 width="95%" border=1>
+  <TBODY>
+  <TR>
+    <TD>
+      <P><FONT face=Courier color=#800000 size=2>Microsoft (R) Xml 
+      Schemas/DataTypes support utility<BR>[Microsoft (R) .NET Framework, 
+      Version 2.0.50727.1432]<BR>Copyright (C) Microsoft Corporation. All rights 
+      reserved.</FONT></P>
+      <P><FONT face=Courier color=#800000 size=2>xsd.exe -<BR>&nbsp;&nbsp;&nbsp; 
+      Utility to generate schema or class files from given source.</FONT></P>
+      <P><FONT face=Courier color=#800000 size=2>xsd.exe &lt;schema&gt;.xsd 
+      /classes|dataset [/e:] [/l:] [/n:] [/o:] [/s] [/uri:]<BR>xsd.exe 
+      &lt;assembly&gt;.dll|.exe [/outputdir:] [/type: [...]]<BR>xsd.exe 
+      &lt;instance&gt;.xml [/outputdir:]<BR>xsd.exe &lt;schema&gt;.xdr 
+      [/outputdir:]</FONT></P></TD></TR></TBODY></TABLE></FONT></P>
+<P><FONT face=Verdana size=2>The first syntax is for generating classes or 
+datasets from a given XSD schema; the second is for generating the schemas from 
+the assembly; the third one is for generating the schema from a given XML 
+instance and the last one is for converting XDR schema to XSD.</FONT></P>
+<P><FONT face=Verdana size=2>Suppose you want to develop a console application 
+that supports multiple syntaxes, what would you do if you don't have any 
+framework on hand?</FONT></P>
+<P><FONT face=Verdana size=2>In ACF, each Option Contract Class represents a 
+syntax. This means, you just need to create a new class when you want to define 
+a command line syntax. Following is&nbsp;a simple&nbsp;example of the 
+class.</FONT></P>
+<P><FONT face=Courier color=#800000 size=2>
+<TABLE style="WIDTH: 95%; BORDER-COLLAPSE: collapse" borderColor=#000000 
+cellSpacing=0 cellPadding=2 width="95%" border=1>
+  <TBODY>
+  <TR>
+    <TD>
+      <P><FONT color=#800000 size=2>[<BR>&nbsp;&nbsp;&nbsp; 
+      OptionContract<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Type = 
+      ContractType.Patternized,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      Description = "Generate class or dataset from 
+      XSD",<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parameters = 
+      1)<BR>]</FONT><FONT size=2><BR><FONT color=#800000>public class 
+      GenerateClassDataSetSyntax : OptionContractBase<BR>{<BR>&nbsp;&nbsp;&nbsp; 
+      [Option(Name = "/classes", Type = 
+      OptionType.Switch)]<BR>&nbsp;&nbsp;&nbsp; public bool IsGenerateClass { 
+      get; set; }<BR><BR>&nbsp;&nbsp;&nbsp; [Option(Name = "/dataset", Type = 
+      OptionType.Switch)]<BR>&nbsp;&nbsp;&nbsp; public bool IsGenerateDataset { 
+      get; set; }<BR>&nbsp;&nbsp;&nbsp; // 
+  ...<BR>}</FONT></FONT>&nbsp;</P></TD></TR></TBODY></TABLE></FONT></P>
+<P><FONT face=Verdana size=2>The class&nbsp;is simple and uncompleted. Currently 
+you don't need to know much about the <FONT face=Courier 
+color=#800000>OptionContractBase</FONT> class and the attributes applied on the 
+class and its properties, these will be discussed in the following chapters. But 
+you must understand that in ACF, a command line syntax is defined and described 
+by an Option Contract class.</FONT></P></BODY>
+</html>

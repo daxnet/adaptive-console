@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Create the Console Application</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+
+</head>
+
+<BODY>
+<P><FONT face=Verdana size=2>Until now, we just have two class libraries, one is 
+the application provider, the other is the library which holds two different 
+contracts (we call this library a Contract Repository in ACF, and it will be 
+discussed in more detail in the <A href="Contract Repository.htm">Contract Repository</A> chapter). None 
+of them is executable. In order to make it work in command line, we must create 
+a console application.</FONT></P>
+<P><FONT face=Verdana size=2>This console application is pretty simple, it just 
+an host for the defined contracts. We will implement this console application 
+with few lines of code.</FONT></P>
+<P><FONT face=Verdana size=2>Before we start, we should add a console 
+application to our solution. Please do the following:</FONT></P>
+<OL>
+  <LI><FONT face=Verdana size=2>Right click the solution, select <STRONG>Add | 
+  New Project</STRONG></FONT> 
+  <LI><FONT face=Verdana size=2>In the <STRONG>Add New Project</STRONG> dialog, 
+  select <STRONG>Visual C# | Console Application</STRONG>, in the 
+  <STRONG>Name</STRONG> text box, type "<FONT face=Courier 
+  color=#800000>catool</FONT>"<BR><IMG alt="" src="images/catool_create_console_app.png"></FONT> 
+  <LI><FONT face=Verdana size=2>Right click on the <STRONG>References</STRONG> 
+  node of the newly created console application, select <STRONG>Add 
+  Reference</STRONG></FONT> 
+  <LI><FONT face=Verdana size=2>Under <STRONG>.NET</STRONG> tab of the 
+  <STRONG>Add Reference</STRONG> dialog, select <STRONG>Adaptive Console 
+  Framework</STRONG>, then click <STRONG>OK</STRONG> button<BR><STRONG><IMG alt="" src="images/catool_add_reference.png"></STRONG></FONT> 
+  <LI><FONT face=Verdana size=2>Right click on the <STRONG>References</STRONG> 
+  node of the newly created console application, select <STRONG>Add 
+  Reference</STRONG></FONT> 
+  <LI><FONT face=Verdana size=2>Under <STRONG>Projects</STRONG> tab of the 
+  <STRONG>Add Reference</STRONG> dialog, select <FONT face=Courier 
+  color=#800000>Catool.Contracts</FONT> and <FONT face=Courier 
+  color=#800000>Catool.Provider</FONT> projects, then click <STRONG>OK</STRONG> 
+  button. This ensures that the generated binary files of these two projects 
+  will be copied into the console application's binary directory<BR><IMG alt="" src="images/catool_add_reference_prj.png"></FONT> 
+  <LI><FONT face=Verdana size=2>Open the <FONT face=Courier 
+  color=#800000>Properties\AssemblyInfo.cs</FONT> file, modify the file 
+  according to your needs. Following gives the example.<BR>
+  <TABLE style="BORDER-COLLAPSE: collapse" borderColor=#000000 cellSpacing=0 
+  cellPadding=2 width="90%" border=1>
+    <TBODY>
+    <TR>
+      <TD>
+        <DIV 
+        style="FONT-SIZE: 10pt; BACKGROUND: white; COLOR: black; FONT-FAMILY: Courier New">
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">using</SPAN> 
+        System.Reflection;</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">using</SPAN> 
+        System.Runtime.CompilerServices;</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">using</SPAN> 
+        System.Runtime.InteropServices;</P>
+        <P style="MARGIN: 0px">&nbsp;</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">// General Information 
+        about an assembly is controlled through the following </SPAN></P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">// set of attributes. 
+        Change these attribute values to modify the information</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">// associated with an 
+        assembly.</SPAN></P>
+        <P style="MARGIN: 0px">[<SPAN style="COLOR: blue">assembly</SPAN>: <SPAN 
+        style="COLOR: #2b91af">AssemblyTitle</SPAN>(<SPAN 
+        style="COLOR: #a31515">"catool"</SPAN>)]</P>
+        <P style="MARGIN: 0px">[<SPAN style="COLOR: blue">assembly</SPAN>: <SPAN 
+        style="COLOR: #2b91af">AssemblyDescription</SPAN>(<SPAN 
+        style="COLOR: #a31515">""</SPAN>)]</P>
+        <P style="MARGIN: 0px">[<SPAN style="COLOR: blue">assembly</SPAN>: <SPAN 
+        style="COLOR: #2b91af">AssemblyConfiguration</SPAN>(<SPAN 
+        style="COLOR: #a31515">""</SPAN>)]</P>
+        <P style="MARGIN: 0px">[<SPAN style="COLOR: blue">assembly</SPAN>: <SPAN 
+        style="COLOR: #2b91af">AssemblyCompany</SPAN>(<SPAN 
+        style="COLOR: #a31515">"SunnyChen.ORG"</SPAN>)]</P>
+        <P style="MARGIN: 0px">[<SPAN style="COLOR: blue">assembly</SPAN>: <SPAN 
+        style="COLOR: #2b91af">AssemblyProduct</SPAN>(<SPAN 
+        style="COLOR: #a31515">"catool"</SPAN>)]</P>
+        <P style="MARGIN: 0px">[<SPAN style="COLOR: blue">assembly</SPAN>: <SPAN 
+        style="COLOR: #2b91af">AssemblyCopyright</SPAN>(<SPAN 
+        style="COLOR: #a31515">"Copyright (C) 2007-2009 SunnyChen.ORG, all 
+        rights reserved."</SPAN>)]</P>
+        <P style="MARGIN: 0px">[<SPAN style="COLOR: blue">assembly</SPAN>: <SPAN 
+        style="COLOR: #2b91af">AssemblyTrademark</SPAN>(<SPAN 
+        style="COLOR: #a31515">""</SPAN>)]</P>
+        <P style="MARGIN: 0px">[<SPAN style="COLOR: blue">assembly</SPAN>: <SPAN 
+        style="COLOR: #2b91af">AssemblyCulture</SPAN>(<SPAN 
+        style="COLOR: #a31515">""</SPAN>)]</P>
+        <P style="MARGIN: 0px">&nbsp;</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">// Setting ComVisible 
+        to false makes the types in this assembly not visible </SPAN></P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">// to COM 
+        components.&nbsp; If you need to access a type in this assembly from 
+        </SPAN></P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">// COM, set the 
+        ComVisible attribute to true on that type.</SPAN></P>
+        <P style="MARGIN: 0px">[<SPAN style="COLOR: blue">assembly</SPAN>: <SPAN 
+        style="COLOR: #2b91af">ComVisible</SPAN>(<SPAN 
+        style="COLOR: blue">false</SPAN>)]</P>
+        <P style="MARGIN: 0px">&nbsp;</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">// The following GUID 
+        is for the ID of the typelib if this project is exposed to 
+COM</SPAN></P>
+        <P style="MARGIN: 0px">[<SPAN style="COLOR: blue">assembly</SPAN>: <SPAN 
+        style="COLOR: #2b91af">Guid</SPAN>(<SPAN 
+        style="COLOR: #a31515">"8c2b7e3b-4313-4658-a6ee-dc08650845f2"</SPAN>)]</P>
+        <P style="MARGIN: 0px">&nbsp;</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">// Version information 
+        for an assembly consists of the following four values:</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">//</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">//&nbsp;&nbsp;&nbsp; 
+        &nbsp; Major Version</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">//&nbsp;&nbsp;&nbsp; 
+        &nbsp; Minor Version </SPAN></P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">//&nbsp;&nbsp;&nbsp; 
+        &nbsp; Build Number</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">//&nbsp;&nbsp;&nbsp; 
+        &nbsp; Revision</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">//</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">// You can specify all 
+        the values or you can default the Build and Revision Numbers </SPAN></P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">// by using the '*' as 
+        shown below:</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: green">// [assembly: 
+        AssemblyVersion("1.0.*")]</SPAN></P>
+        <P style="MARGIN: 0px">[<SPAN style="COLOR: blue">assembly</SPAN>: <SPAN 
+        style="COLOR: #2b91af">AssemblyVersion</SPAN>(<SPAN 
+        style="COLOR: #a31515">"3.5.3253.15384"</SPAN>)]</P>
+        <P style="MARGIN: 0px">[<SPAN style="COLOR: blue">assembly</SPAN>: <SPAN 
+        style="COLOR: #2b91af">AssemblyFileVersion</SPAN>(<SPAN 
+        style="COLOR: #a31515">"3.5.0.0"</SPAN>)]</P></DIV><!--EndFragment--></TD></TR></TBODY></TABLE></FONT></LI></OL>
+<P><FONT face=Verdana size=2><STRONG><FONT 
+style="BACKGROUND-COLOR: #ffff00">Note</FONT></STRONG>: Actually in the step 6 
+above, it is not necessary to add the project references to the console 
+application, because the console application is independent of&nbsp;the 
+implementation&nbsp;and&nbsp;it don't need to know much about the details of the 
+provider and contracts in ACF architecture, everything is configurable in ACF. 
+Here you can redirect the output of these two projects to the console 
+application's binary directory by project settings, instead of setting the 
+project references.</FONT></P></BODY>
+</html>

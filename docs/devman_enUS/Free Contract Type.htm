@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Free Type</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+
+</head>
+
+<BODY>
+<P><FONT face=Verdana size=2>In the Free contract, all the command line 
+arguments will be considered as the parameter. For example, for patternized 
+contract "<FONT face=Courier color=#800000>catool /method:add 20 40</FONT>", if 
+the contract type is specified to Free, then the option <FONT face=Courier 
+color=#800000>"/method</FONT>" is also considered as a parameter, which means, 
+it is no longer an option here.</FONT></P>
+<P><FONT face=Verdana size=2>Use the Free contract when there is no need to use 
+any option in the command line syntax. Consider we are going to develop a simple 
+console application which takes the two given number as input, and then 
+calculate and output the added value of the two. In this case, both the two 
+numbers are parameters, it is pretty simple and no need to use option here, 
+like:</FONT></P>
+<P><FONT face=Verdana size=2>
+<TABLE style="BORDER-COLLAPSE: collapse" borderColor=#000000 cellSpacing=0 
+cellPadding=2 width="95%" border=1>
+  <TBODY>
+  <TR>
+    <TD>
+      <P><FONT face=Courier color=#800000 size=2>D:\&gt;simple_app 20 
+      30</FONT></P>
+      <P><FONT face=Courier color=#800000 
+size=2>50</FONT></P></TD></TR></TBODY></TABLE></FONT></P>
+<P><FONT face=Verdana><FONT size=2><STRONG><FONT 
+style="BACKGROUND-COLOR: #ffff00">Note</FONT></STRONG>: If a Free contract is 
+defined, we cannot define any Exact or Patternized contract in the repository, 
+because all the command line arguments are the parameters. Otherwise, an <FONT 
+face=Courier color=#800000>InvalidContractException</FONT> would be 
+raised.</FONT></FONT></P></BODY>
+</html>

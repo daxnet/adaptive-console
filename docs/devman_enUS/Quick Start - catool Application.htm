@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Quick Start - The catool Application</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+
+</head>
+
+<BODY>
+<P><FONT face=Verdana size=2>In this chapter, we will introduce how to use ACF 
+to develop a console application which performs arithmetic operations on two 
+given integers. For convenience, we give the name <FONT face=Courier 
+color=#800000>catool<FONT face=Verdana> <FONT color=#000000>(<FONT 
+color=#800000>ca</FONT>lculation <FONT color=#800000>tool</FONT>)</FONT> 
+</FONT></FONT>to this application and in the following chapters, we will discuss 
+the design concepts of ACF by taking catool as examples.&nbsp;</FONT></P>
+<P><FONT face=Verdana size=2>There are four kinds of arithmetic operations on 
+two integers: addition, subtraction, multiplication and division. So in our 
+console application, we should specify the kind of the operation that we are 
+going to take. Also, we must provide the two integer numbers in the command 
+line.</FONT></P>
+<P><FONT face=Verdana size=2>For the users who don't want to see verbose 
+information when&nbsp;the program&nbsp;performs calculation, we will provide a 
+switch called "nologo", which will suppress the display of the application 
+banner information.</FONT></P>
+<P><FONT face=Verdana size=2>We will also provide a syntax with which users can 
+get the version information about the running application.</FONT></P>
+<P><FONT face=Verdana size=2>In addition, when user provides invalid argument, 
+the help screen must be displayed.</FONT></P>
+<P><FONT face=Verdana size=2>From the requirement listed above, we can&nbsp;now 
+figure out the syntaxes that needs to be supported by catool 
+application.</FONT></P>
+<P>
+<TABLE style="BORDER-COLLAPSE: collapse" borderColor=#000000 cellSpacing=0 
+cellPadding=2 width="95%" border=1>
+  <TBODY>
+  <TR>
+    <TD>
+      <P><FONT face=Courier color=#800000 size=2>1. catool.exe 
+      /m|/method:add|sub|mul|div num1 num2 [/nologo]<BR>2. catool.exe 
+      /version|/ver</FONT></P></TD></TR></TBODY></TABLE></P>
+<P><FONT face=Verdana size=2>The first syntax has four arguments, the first 
+argument is for specifying the calculation method (addition, subtraction, 
+multiplication or division), the second and the third arguments are for 
+specifying the numbers on which the arithmetic operation will be applied. The 
+last argument is a switch, which is used for determining whether the banner 
+information should be suppressed.</FONT></P>
+<P><FONT face=Verdana size=2>The second syntax has only one argument: the<FONT 
+face=Courier color=#800000> /version</FONT> or <FONT face=Courier 
+color=#800000>/ver</FONT>. By&nbsp;specifying this argument, the application 
+will print the version information on the screen.</FONT></P>
+<P><FONT face=Verdana size=2>Don't worry about the requirement which needs help 
+information be displayed when the invalid arguments are provided. This is 
+totally handled by ACF.</FONT></P>
+<P><FONT face=Verdana size=2>Now let's start and see how the <FONT face=Courier 
+color=#800000>catool</FONT> console application is implemented by using 
+ACF.</FONT></P></BODY>
+</html>

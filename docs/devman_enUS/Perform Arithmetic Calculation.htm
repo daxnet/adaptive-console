@@ -1,0 +1,499 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Perform Arithmetic Calculation</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+
+</head>
+
+<BODY>
+<P><FONT face=Verdana size=2><FONT face=Courier color=#800000>Catool</FONT> 
+application allows the user to perform the arithmetic calculation on the two 
+given integers by the specified calculation method. After the calculation 
+successfully completes, the result will be printed. Furthermore, catool will 
+also&nbsp;provide a <FONT face=Courier color=#800000>/nologo</FONT> switch which 
+suppresses the display of the banner information.</FONT></P>
+<P><FONT face=Verdana size=2>As we discussed before, the catool should have the 
+following syntax. Let's see how it is implemented by using ACF.</FONT></P>
+<P>
+<TABLE style="BORDER-COLLAPSE: collapse" borderColor=#000000 cellSpacing=0 
+cellPadding=2 width="95%" border=1>
+  <TBODY>
+  <TR>
+    <TD><FONT face=Courier color=#800000 size=2>catool.exe 
+      /m|/method:add|sub|mul|div num1 num2 
+[/nologo]</FONT></TD></TR></TBODY></TABLE></P>
+<OL>
+  <LI><FONT face=Verdana size=2>Right click <FONT face=Courier 
+  color=#800000>Catool.Contracts</FONT> project in the <STRONG>Solution 
+  Explorer</STRONG>, select <STRONG>Add | Class</STRONG> menu, in the 
+  <STRONG>Add New Item</STRONG> dialog, provide the name "<FONT face=Courier 
+  color=#800000>CalculationContract.cs</FONT>"</FONT> 
+  <LI><FONT face=Verdana size=2>Modify the <FONT face=Courier 
+  color=#800000>CalculationContract</FONT> class so that it inherits from the 
+  <FONT face=Courier color=#800000>OptionContractBase</FONT> class, and apply 
+  the <FONT face=Courier color=#800000>OptionContract</FONT> attribute on it. 
+  After doing these changes, the class&nbsp;looks like the following:<BR>
+  <TABLE style="BORDER-COLLAPSE: collapse" borderColor=#000000 cellSpacing=0 
+  cellPadding=2 width="90%" border=1>
+    <TBODY>
+    <TR>
+      <TD>
+        <DIV 
+        style="FONT-SIZE: 10pt; BACKGROUND: white; COLOR: black; FONT-FAMILY: Courier New">
+        <P style="MARGIN: 0px">[</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #2b91af">OptionContract</SPAN>(</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Type=<SPAN 
+        style="COLOR: #2b91af">ContractType</SPAN>.Patternized,</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        Description=<SPAN style="COLOR: #a31515">"Performs arithmetic 
+        calculation"</SPAN>,</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        Parameters=<SPAN style="COLOR: fuchsia">2</SPAN>)</P>
+        <P style="MARGIN: 0px">]</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">public</SPAN> <SPAN 
+        style="COLOR: blue">class</SPAN> <SPAN 
+        style="COLOR: #2b91af">CalculationContract</SPAN> : <SPAN 
+        style="COLOR: #2b91af">OptionContractBase</SPAN></P>
+        <P style="MARGIN: 0px">{</P>
+        <P 
+  style="MARGIN: 0px">}</P></DIV><!--EndFragment--></TD></TR></TBODY></TABLE><BR></FONT>
+  <LI><FONT face=Verdana size=2>Add a string property to the class, name it to 
+  "<FONT face=Courier color=#800000>Method</FONT>", and apply the&nbsp;proper 
+  <FONT face=Courier color=#800000>Option</FONT> attribute on it<BR>
+  <TABLE style="BORDER-COLLAPSE: collapse" borderColor=#000000 cellSpacing=0 
+  cellPadding=2 width="90%" border=1>
+    <TBODY>
+    <TR>
+      <TD>
+        <DIV 
+        style="FONT-SIZE: 10pt; BACKGROUND: white; COLOR: black; FONT-FAMILY: Courier New">
+        <P style="MARGIN: 0px">[</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #2b91af">Option</SPAN>(</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Name=<SPAN 
+        style="COLOR: #a31515">"/method;/m"</SPAN>,</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Type=<SPAN 
+        style="COLOR: #2b91af">OptionType</SPAN>.SingleValue,</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        Description=<SPAN style="COLOR: #a31515">"Specifies the calculation 
+        method\n"</SPAN>+</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #a31515">"\t\tadd: Performs an addition 
+        calculation\n"</SPAN>+</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #a31515">"\t\tsub: Performs a subtraction 
+        calculation\n"</SPAN>+</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #a31515">"\t\tmul: Performs a multiplication 
+        calculation\n"</SPAN>+</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #a31515">"\t\tdiv: Performs a division 
+        calculation"</SPAN>,</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        Required=<SPAN style="COLOR: blue">true</SPAN>)</P>
+        <P style="MARGIN: 0px">]</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">public</SPAN> <SPAN 
+        style="COLOR: blue">string</SPAN> Method { <SPAN 
+        style="COLOR: blue">get</SPAN>; <SPAN style="COLOR: blue">set</SPAN>; 
+        }</P></DIV><!--EndFragment--></TD></TR></TBODY></TABLE><BR></FONT>
+  <LI><FONT face=Verdana size=2>Add a boolean property to the class, name it to 
+  "<FONT face=Courier color=#800000>NoLogo</FONT>", and apply the proper <FONT 
+  face=Courier color=#800000>Option</FONT> attribute on it<BR>
+  <TABLE style="BORDER-COLLAPSE: collapse" borderColor=#000000 cellSpacing=0 
+  cellPadding=2 width="90%" border=1>
+    <TBODY>
+    <TR>
+      <TD>
+        <DIV 
+        style="FONT-SIZE: 10pt; BACKGROUND: white; COLOR: black; FONT-FAMILY: Courier New">
+        <P style="MARGIN: 0px">[</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #2b91af">Option</SPAN>(</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Name=<SPAN 
+        style="COLOR: #a31515">"/nologo"</SPAN>,</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Type=<SPAN 
+        style="COLOR: #2b91af">OptionType</SPAN>.Switch,</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        Description=<SPAN style="COLOR: #a31515">"Suppress the display of banner 
+        information"</SPAN>)</P>
+        <P style="MARGIN: 0px">]</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">public</SPAN> <SPAN 
+        style="COLOR: blue">bool</SPAN> NoLogo { <SPAN 
+        style="COLOR: blue">get</SPAN>; <SPAN style="COLOR: blue">set</SPAN>; 
+        }</P></DIV><!--EndFragment--></TD></TR></TBODY></TABLE><BR></FONT>
+  <LI><FONT face=Verdana size=2>Override and implement the <FONT face=Courier 
+  color=#800000>Execute</FONT> method<BR>
+  <TABLE style="BORDER-COLLAPSE: collapse" borderColor=#000000 cellSpacing=0 
+  cellPadding=2 width="90%" border=1>
+    <TBODY>
+    <TR>
+      <TD>
+        <DIV 
+        style="FONT-SIZE: 10pt; BACKGROUND: white; COLOR: black; FONT-FAMILY: Courier New">
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">public</SPAN> <SPAN 
+        style="COLOR: blue">override</SPAN> <SPAN 
+        style="COLOR: blue">void</SPAN> Execute(</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #2b91af">ConsoleApplicationBase</SPAN> consoleApplication, 
+        </P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #2b91af">IList</SPAN>&lt;<SPAN 
+        style="COLOR: #2b91af">ArgumentInfo</SPAN>&gt; args)</P>
+        <P style="MARGIN: 0px">{</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">var</SPAN> integers = <SPAN 
+        style="COLOR: blue">from</SPAN> arg <SPAN style="COLOR: blue">in</SPAN> 
+        args</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">where</SPAN> arg.Category == <SPAN 
+        style="COLOR: #2b91af">ArgumentCategory</SPAN>.Parameter</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">select</SPAN> arg.Argument;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">int</SPAN> num1, num2, result;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">try</SPAN></P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; num1 = 
+        <SPAN style="COLOR: blue">int</SPAN>.Parse(integers.ElementAt(<SPAN 
+        style="COLOR: fuchsia">0</SPAN>));</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; num2 = 
+        <SPAN style="COLOR: blue">int</SPAN>.Parse(integers.ElementAt(<SPAN 
+        style="COLOR: fuchsia">1</SPAN>));</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; }</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">catch</SPAN></P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        consoleApplication.PrintHelpMessage();</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">return</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; }</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">if</SPAN> (!<SPAN 
+        style="COLOR: blue">this</SPAN>.NoLogo)</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        consoleApplication.PrintBanner();</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">try</SPAN></P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">switch</SPAN> (<SPAN 
+        style="COLOR: blue">this</SPAN>.Method.ToUpper())</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">case</SPAN> <SPAN 
+        style="COLOR: #a31515">"ADD"</SPAN>:</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; result = num1 + num2;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">break</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">case</SPAN> <SPAN 
+        style="COLOR: #a31515">"SUB"</SPAN>:</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; result = num1 - num2;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">break</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">case</SPAN> <SPAN 
+        style="COLOR: #a31515">"MUL"</SPAN>:</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; result = num1 * num2;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">break</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">case</SPAN> <SPAN 
+        style="COLOR: #a31515">"DIV"</SPAN>:</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; result = num1 / num2;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">break</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">default</SPAN>:</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        consoleApplication.PrintHelpMessage();</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">return</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #2b91af">Console</SPAN>.WriteLine(result);</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; }</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">catch</SPAN> (<SPAN 
+        style="COLOR: #2b91af">DivideByZeroException</SPAN>)</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #2b91af">Console</SPAN>.WriteLine(<SPAN 
+        style="COLOR: #a31515">"Divided by zero error caught."</SPAN>);</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">return</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; }</P>
+        <P 
+  style="MARGIN: 0px">}</P></DIV><!--EndFragment--></TD></TR></TBODY></TABLE><BR></FONT>
+  <LI><FONT face=Verdana size=2>After finishing the steps above, the <FONT 
+  face=Courier color=#800000>CalculationContract</FONT> class should look like 
+  this:<BR>
+  <TABLE style="BORDER-COLLAPSE: collapse" borderColor=#000000 cellSpacing=0 
+  cellPadding=2 width="90%" border=1>
+    <TBODY>
+    <TR>
+      <TD>
+        <DIV 
+        style="FONT-SIZE: 10pt; BACKGROUND: white; COLOR: black; FONT-FAMILY: Courier New">
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">using</SPAN> 
+System;</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">using</SPAN> 
+        System.Collections.Generic;</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">using</SPAN> 
+        System.Linq;</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">using</SPAN> 
+        System.Text;</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">using</SPAN> 
+        AdaptiveConsole;</P>
+        <P style="MARGIN: 0px">&nbsp;</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">namespace</SPAN> 
+        Catool.Contracts</P>
+        <P style="MARGIN: 0px">{</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; [</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #2b91af">OptionContract</SPAN>(</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; Type=<SPAN 
+        style="COLOR: #2b91af">ContractType</SPAN>.Patternized,</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; Description=<SPAN style="COLOR: #a31515">"Performs 
+        arithmetic calculation"</SPAN>,</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; Parameters=<SPAN style="COLOR: fuchsia">2</SPAN>)</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; ]</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">public</SPAN> <SPAN style="COLOR: blue">class</SPAN> 
+        <SPAN style="COLOR: #2b91af">CalculationContract</SPAN> : <SPAN 
+        style="COLOR: #2b91af">OptionContractBase</SPAN></P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; [</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: #2b91af">Option</SPAN>(</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Name=<SPAN 
+        style="COLOR: #a31515">"/method;/m"</SPAN>,</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Type=<SPAN 
+        style="COLOR: #2b91af">OptionType</SPAN>.SingleValue,</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Description=<SPAN 
+        style="COLOR: #a31515">"Specifies the calculation method\n"</SPAN>+</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #a31515">"\t\tadd: Performs an addition 
+        calculation\n"</SPAN>+</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #a31515">"\t\tsub: Performs a subtraction 
+        calculation\n"</SPAN>+</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #a31515">"\t\tmul: Performs a multiplication 
+        calculation\n"</SPAN>+</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #a31515">"\t\tdiv: Performs a division 
+        calculation"</SPAN>,</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Required=<SPAN 
+        style="COLOR: blue">true</SPAN>)</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ]</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">public</SPAN> <SPAN 
+        style="COLOR: blue">string</SPAN> Method { <SPAN 
+        style="COLOR: blue">get</SPAN>; <SPAN style="COLOR: blue">set</SPAN>; 
+        }</P>
+        <P style="MARGIN: 0px">&nbsp;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; [</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: #2b91af">Option</SPAN>(</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Name=<SPAN 
+        style="COLOR: #a31515">"/nologo"</SPAN>,</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Type=<SPAN 
+        style="COLOR: #2b91af">OptionType</SPAN>.Switch,</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Description=<SPAN 
+        style="COLOR: #a31515">"Suppress the display of banner 
+        information"</SPAN>)</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ]</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">public</SPAN> <SPAN style="COLOR: blue">bool</SPAN> 
+        NoLogo { <SPAN style="COLOR: blue">get</SPAN>; <SPAN 
+        style="COLOR: blue">set</SPAN>; }</P>
+        <P style="MARGIN: 0px">&nbsp;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">public</SPAN> <SPAN 
+        style="COLOR: blue">override</SPAN> <SPAN 
+        style="COLOR: blue">void</SPAN> Execute(</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #2b91af">ConsoleApplicationBase</SPAN> consoleApplication, 
+        </P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: #2b91af">IList</SPAN>&lt;<SPAN 
+        style="COLOR: #2b91af">ArgumentInfo</SPAN>&gt; args)</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">var</SPAN> integers = <SPAN 
+        style="COLOR: blue">from</SPAN> arg <SPAN style="COLOR: blue">in</SPAN> 
+        args</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <SPAN style="COLOR: blue">where</SPAN> 
+        arg.Category == <SPAN 
+        style="COLOR: #2b91af">ArgumentCategory</SPAN>.Parameter</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <SPAN style="COLOR: blue">select</SPAN> 
+        arg.Argument;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">int</SPAN> num1, num2, 
+        result;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">try</SPAN></P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; num1 = <SPAN 
+        style="COLOR: blue">int</SPAN>.Parse(integers.ElementAt(<SPAN 
+        style="COLOR: fuchsia">0</SPAN>));</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; num2 = <SPAN 
+        style="COLOR: blue">int</SPAN>.Parse(integers.ElementAt(<SPAN 
+        style="COLOR: fuchsia">1</SPAN>));</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; }</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">catch</SPAN></P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        consoleApplication.PrintHelpMessage();</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">return</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; }</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">if</SPAN> (!<SPAN 
+        style="COLOR: blue">this</SPAN>.NoLogo)</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        consoleApplication.PrintBanner();</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">try</SPAN></P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">switch</SPAN> (<SPAN 
+        style="COLOR: blue">this</SPAN>.Method.ToUpper())</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">case</SPAN> <SPAN 
+        style="COLOR: #a31515">"ADD"</SPAN>:</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; result = num1 + num2;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">break</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">case</SPAN> <SPAN 
+        style="COLOR: #a31515">"SUB"</SPAN>:</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; result = num1 - num2;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">break</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">case</SPAN> <SPAN 
+        style="COLOR: #a31515">"MUL"</SPAN>:</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; result = num1 * num2;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">break</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">case</SPAN> <SPAN 
+        style="COLOR: #a31515">"DIV"</SPAN>:</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; result = num1 / num2;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">break</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">default</SPAN>:</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; consoleApplication.PrintHelpMessage();</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">return</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #2b91af">Console</SPAN>.WriteLine(result);</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; }</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">catch</SPAN> (<SPAN 
+        style="COLOR: #2b91af">DivideByZeroException</SPAN>)</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: #2b91af">Console</SPAN>.WriteLine(<SPAN 
+        style="COLOR: #a31515">"Divided by zero error caught."</SPAN>);</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">return</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; }</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; }</P>
+        <P 
+  style="MARGIN: 0px">}</P></DIV><!--EndFragment--></TD></TR></TBODY></TABLE></FONT></LI></OL>
+<P><FONT face=Verdana size=2>Yeah! Now we have almost reached the goal. Our 
+catool application now has the ability to perform the calculation, print the 
+result and display the version information. The final step we should take is to 
+add a console application so that users can run.</FONT></P></BODY>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>OptionContractAttribute</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+
+</head>
+
+<BODY>
+<P><FONT face=Verdana size=2><FONT face=Courier 
+color=#800000>OptionContractAttribute</FONT> must be applied on the class 
+target, which represents an option contract in ACF.</FONT></P>
+<P>
+<TABLE style="WIDTH: 95%; BORDER-COLLAPSE: collapse" borderColor=#000000 
+cellSpacing=0 cellPadding=2 width="95%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="20%">
+      <P align=center><FONT face=Verdana 
+      size=2><STRONG>Property</STRONG></FONT></P></TD>
+    <TD width="40%">
+      <P align=center><FONT face=Verdana 
+      size=2><STRONG>Description</STRONG></FONT></P></TD>
+    <TD width="40%">
+      <P align=center><FONT face=Verdana 
+      size=2><STRONG>Remarks</STRONG></FONT></P></TD></TR>
+  <TR>
+    <TD width="20%"><FONT face=Verdana size=2>Type</FONT></TD>
+    <TD width="40%">
+      <P><FONT face=Verdana size=2 align="Left" valign="Top" 
+      width="40%">Indicates the type of the option contract</FONT></P></TD>
+    <TD width="40%"><FONT face=Verdana size=2>There are four different types: 
+      Patternized, Exact, None and Free. For more information about option 
+      contract types, please refer to <A href="Contract Types.htm">Syntax (Contract) Types</A> 
+      chapter.</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT face=Verdana size=2>Argument</FONT></TD>
+    <TD width="40%"><FONT face=Verdana size=2>Indicates the corresponding 
+      argument of the option contract</FONT></TD>
+    <TD width="40%"><FONT face=Verdana size=2>When the type of the option 
+      contract is Exact, the Argument property stands for the command line 
+      argument of the contract. For example, when a console 
+      application&nbsp;has&nbsp;only&nbsp;one argument called "/version", which 
+      is for displaying the version information, we can create an Exact contract 
+      and set the Argument property of the attribute to "/version". Use 
+      semicolon ";" to separate the different instance of the argument, like: 
+      "/version;/ver", which makes the application had the same behavior when 
+      user provides the "/version" or "/ver" argument. You don't need to specify 
+      the Argument property when the option contract is the type of Patternized, 
+      Free or None.</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT face=Verdana size=2>CaseSensitive</FONT></TD>
+    <TD width="40%"><FONT face=Verdana size=2>Specifies if the Argument is 
+      case sensitive.</FONT></TD>
+    <TD width="40%"><FONT face=Verdana size=2>Also this property is meaningful 
+      when it is an Exact option contract. It is used for determining whether 
+      the Argument is case sensitive. "/Version" and "/version" will have 
+      different meaning if this property has been set to True. You don't need to 
+      specify this property when the option contract is the type of Patternized, 
+      Free or None.</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT face=Verdana size=2>Description</FONT></TD>
+    <TD width="40%"><FONT face=Verdana size=2>Specifies the description of the 
+      option contract.</FONT></TD>
+    <TD width="40%"><FONT face=Verdana size=2>This description text will be 
+      used for generating the help information that will be shown on the help 
+      screen. It is a best practice that specify the Description property for 
+      each option contract in your contract repository.</FONT></TD></TR>
+  <TR>
+    <TD width="20%"><FONT face=Verdana size=2>Parameters</FONT></TD>
+    <TD width="40%"><FONT face=Verdana size=2>Specifies the number of the 
+      arguments that are the type of Parameter.</FONT></TD>
+    <TD width="40%"><FONT face=Verdana size=2>A console applicationn may have 
+      one or more arguments that are the type of Parameter. This property is for 
+      setting the exact number of such arguments. In the catool application for 
+      example, it just have, and just need two parameters: the two integer 
+      numbers. Give the value -1 to this property (or ignore the 
+      property)&nbsp;if your parameter&nbsp;list is variant. It is meaningful 
+      only when the contract is the Patternized type. You don't need to specify 
+      this property when the option contract is the type of Exact, Free or None. 
+      For more information about the Parameter type please refer to <A href="Parameter Type.htm">Parameter 
+      Type</A>.</FONT></TD></TR></TBODY></TABLE></P></BODY>
+</html>

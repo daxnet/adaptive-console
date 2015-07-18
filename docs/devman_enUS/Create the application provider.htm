@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Create the Application Provider</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+
+</head>
+
+<BODY>
+<P><FONT face=Verdana size=2>Application provider is a role which provides the 
+concrete console application instance in ACF, it provides the detailed 
+information about console application, and determines the&nbsp;how the 
+application behaves. It is easy to create application provider just by creating 
+a new class which inherits from <FONT face=Courier 
+color=#800000>AdaptiveConsole.ConsoleApplicationBase</FONT>, and implementing 
+the abstract members.</FONT></P>
+<P><FONT face=Verdana size=2><STRONG>Create a blank solution named <FONT 
+face=Courier color=#800000>catool</FONT> in Visual Studio 
+2008</STRONG></FONT></P>
+<OL>
+  <LI><FONT face=Verdana size=2>Open Visual Studio 2008</FONT> 
+  <LI><FONT face=Verdana size=2>Select <STRONG>File | New | Project</STRONG> 
+  menu, this brings up the <STRONG>New Project</STRONG> dialog</FONT> 
+  <LI><FONT face=Verdana size=2>In the <STRONG>New Project</STRONG> dialog, 
+  select <STRONG>Other Project Types | Visual Studio Solutions | Blank 
+  Solution</STRONG>, then type the name "<FONT face=Courier 
+  color=#800000>catool</FONT>" in the <STRONG>Name</STRONG> text box<BR><IMG alt="" src="images/catool_new_project.png"></FONT> </LI></OL>
+<P><FONT face=Verdana size=2><STRONG>Create the Provider</STRONG></FONT></P>
+<OL>
+  <LI><FONT face=Verdana size=2>In the <STRONG>Solution Explorer</STRONG>, right 
+  click the newly created solution, select <STRONG>Add | New Project</STRONG> 
+  menu, this will bring up the <STRONG>Add New Project</STRONG> dialog</FONT> 
+  <LI><FONT face=Verdana size=2>Select <STRONG>Visual C# | Class 
+  Library</STRONG> project so that we can add a new class library project to the 
+  solution, in the <STRONG>Name</STRONG> text box, input <FONT face=Courier 
+  color=#800000>Catool.Provider</FONT></FONT> 
+  <LI><FONT face=Verdana size=2>Right click <STRONG>References</STRONG> node of 
+  the Catool.Provider project, select <STRONG>Add Reference</STRONG> menu, the 
+  <STRONG>Add Reference</STRONG> dialog will appear</FONT> 
+  <LI><FONT face=Verdana size=2>In the <STRONG>.NET</STRONG> tab, select 
+  <STRONG>Adaptive Console Framework</STRONG>, and click 
+  <STRONG>OK</STRONG><BR><IMG alt="" src="images/catool_add_reference.png"></FONT> 
+  <LI><FONT face=Verdana size=2>In the <STRONG>Solution Explorer</STRONG>, 
+  rename the <FONT face=Courier color=#800000>Class1.cs</FONT> to <FONT 
+  face=Courier color=#800000>CatoolApplication.cs</FONT>, on the coming confirm 
+  dialog, click <STRONG>OK</STRONG> to accept the change</FONT> 
+  <LI><FONT face=Verdana size=2>Import the <FONT face=Courier 
+  color=#800000>AdaptiveConsole</FONT> namespace by "<FONT face=Courier 
+  color=#800000>using AdaptiveConsole;</FONT>" statement</FONT> 
+  <LI><FONT face=Verdana size=2>Make the <FONT face=Courier 
+  color=#800000>CatoolApplication</FONT> class inherits from <FONT face=Courier 
+  color=#800000>ConsoleApplicationBase</FONT> class:<BR></FONT>
+  <TABLE style="WIDTH: 90%; BORDER-COLLAPSE: collapse" borderColor=#000000 
+  cellSpacing=0 cellPadding=2 width="90%" border=1>
+    <TBODY>
+    <TR>
+      <TD><FONT face=Courier color=#800000 size=2>
+        <DIV 
+        style="FONT-SIZE: 10pt; BACKGROUND: white; COLOR: black; FONT-FAMILY: Courier New">
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">public</SPAN> <SPAN 
+        style="COLOR: blue">class</SPAN> <SPAN 
+        style="COLOR: #2b91af">CatoolApplication</SPAN> : <SPAN 
+        style="COLOR: #2b91af">ConsoleApplicationBase</SPAN></P>
+        <P style="MARGIN: 0px">{ 
+    }</P></DIV><!--EndFragment--></FONT></TD></TR></TBODY></TABLE><BR>
+  <LI><FONT face=Verdana color=#000000 size=2>Override and implement the <FONT 
+  face=Courier color=#800000>Description</FONT> and <FONT face=Courier 
+  color=#800000>Logo</FONT> properties as follows:<BR>
+  <TABLE style="WIDTH: 90%; BORDER-COLLAPSE: collapse" borderColor=#000000 
+  cellSpacing=0 cellPadding=2 width="90%" border=1>
+    <TBODY>
+    <TR>
+      <TD>
+        <DIV 
+        style="FONT-SIZE: 10pt; BACKGROUND: white; COLOR: black; FONT-FAMILY: Courier New">
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">protected</SPAN> <SPAN 
+        style="COLOR: blue">override</SPAN> <SPAN 
+        style="COLOR: blue">string</SPAN> Description</P>
+        <P style="MARGIN: 0px">{</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">get</SPAN> </P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; { </P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">return</SPAN> <SPAN style="COLOR: #a31515">"A 
+        demonstration of" <FONT color=#000000>+</FONT>&nbsp;</SPAN></P>
+        <P style="MARGIN: 0px"><SPAN 
+        style="COLOR: #a31515">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Adaptive 
+        Console Framework"</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; }</P>
+        <P style="MARGIN: 0px">}</P>
+        <P style="MARGIN: 0px">&nbsp;</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">protected</SPAN> <SPAN 
+        style="COLOR: blue">override</SPAN> <SPAN 
+        style="COLOR: blue">string</SPAN> Logo</P>
+        <P style="MARGIN: 0px">{</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">get</SPAN> </P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">return</SPAN> <SPAN 
+        style="COLOR: #a31515">@"catool"</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; }</P>
+        <P 
+  style="MARGIN: 0px">}</P></DIV><!--EndFragment--></TD></TR></TBODY></TABLE><BR></FONT>
+  <LI><FONT face=Verdana size=2>Explicitly implement the constructor which 
+  carries a string array as the only argument, and initialize the base class by 
+  using this argument<BR>
+  <TABLE style="WIDTH: 90%; BORDER-COLLAPSE: collapse" borderColor=#000000 
+  cellSpacing=0 cellPadding=2 width="90%" border=1>
+    <TBODY>
+    <TR>
+      <TD><FONT face=Courier color=#800000 size=2>
+        <DIV 
+        style="FONT-SIZE: 10pt; BACKGROUND: white; COLOR: black; FONT-FAMILY: Courier New">
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">public</SPAN> 
+        CatoolApplication(<SPAN style="COLOR: blue">string</SPAN>[] args) : 
+        <SPAN style="COLOR: blue">base</SPAN>(args) { }</P></DIV><!--EndFragment--></FONT></TD></TR></TBODY></TABLE><BR></FONT>
+  <LI><FONT face=Verdana size=2>After finishing the steps above, our <FONT 
+  face=Courier color=#800000>CatoolApplication</FONT> class should look like 
+  this:<BR>
+  <TABLE style="WIDTH: 90%; BORDER-COLLAPSE: collapse" borderColor=#000000 
+  cellSpacing=0 cellPadding=2 width="90%" border=1>
+    <TBODY>
+    <TR>
+      <TD>
+        <DIV 
+        style="FONT-SIZE: 10pt; BACKGROUND: white; COLOR: black; FONT-FAMILY: Courier New">
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">using</SPAN> 
+        AdaptiveConsole;</P>
+        <P style="MARGIN: 0px">&nbsp;</P>
+        <P style="MARGIN: 0px"><SPAN style="COLOR: blue">namespace</SPAN> 
+        Catool.Provider</P>
+        <P style="MARGIN: 0px">{</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">public</SPAN> <SPAN style="COLOR: blue">class</SPAN> 
+        <SPAN style="COLOR: #2b91af">CatoolApplication</SPAN> : <SPAN 
+        style="COLOR: #2b91af">ConsoleApplicationBase</SPAN></P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">protected</SPAN> <SPAN 
+        style="COLOR: blue">override</SPAN> <SPAN 
+        style="COLOR: blue">string</SPAN> Description</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; <SPAN style="COLOR: blue">get</SPAN> </P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; { </P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">return</SPAN> <SPAN style="COLOR: #a31515">"A 
+        demonstration of " <FONT color=#000000>+</FONT></SPAN></P>
+        <P style="MARGIN: 0px"><SPAN 
+        style="COLOR: #a31515">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Adaptive 
+        Console Framework"</SPAN>; </P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; }</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }</P>
+        <P style="MARGIN: 0px">&nbsp;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">protected</SPAN> <SPAN 
+        style="COLOR: blue">override</SPAN> <SPAN 
+        style="COLOR: blue">string</SPAN> Logo</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {</P>
+        <P 
+        style="MARGIN: 0px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <SPAN style="COLOR: blue">get</SPAN> </P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; {</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">return</SPAN> <SPAN 
+        style="COLOR: #a31515">@"catool"</SPAN>;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+        &nbsp;&nbsp;&nbsp; }</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }</P>
+        <P style="MARGIN: 0px">&nbsp;</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <SPAN 
+        style="COLOR: blue">public</SPAN> CatoolApplication(<SPAN 
+        style="COLOR: blue">string</SPAN>[] args) : <SPAN 
+        style="COLOR: blue">base</SPAN>(args) { }</P>
+        <P style="MARGIN: 0px">&nbsp;&nbsp;&nbsp; }</P>
+        <P 
+  style="MARGIN: 0px">}</P></DIV><!--EndFragment--></TD></TR></TBODY></TABLE></FONT></LI></OL>
+<P><FONT face=Verdana size=2>Now we have successfully defined the application 
+provider. If you wish to customize the display of logo and body information of 
+the help screen, you can protectly override the BannerTemplate and 
+HelpBodyTemplate properties in your provider class. For more information about 
+these two properties and templates, please refer to the <A href="Templates.htm">Help Screen 
+Customization</A>&nbsp;chapter.</FONT></P></BODY>
+</html>
