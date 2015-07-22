@@ -33,13 +33,42 @@ namespace AdaptiveConsole
         /// <returns>The instance of the console application.</returns>
         private static ConsoleApplicationBase GetApplication(string[] args)
         {
+            //try
+            //{
+            //    Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            //    AdaptiveConsoleConfiguration configHandler = (AdaptiveConsoleConfiguration)config.GetSection("AdaptiveConsole");
+            //    Type type = Type.GetType(configHandler.Provider);
+            //    object[] objargs = { args };
+            //    return (ConsoleApplicationBase)Activator.CreateInstance(type, objargs);
+            //}
+            //catch (Exception e)
+            //{
+            //    throw new AdaptiveConsoleException(AdaptiveConsoleException.GENERAL_EXCEPTION_MESSAGE, e);
+            //}
             try
             {
-                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                AdaptiveConsoleConfiguration configHandler = (AdaptiveConsoleConfiguration)config.GetSection("AdaptiveConsole");
-                Type type = Type.GetType(configHandler.Provider);
-                object[] objargs = { args };
-                return (ConsoleApplicationBase)Activator.CreateInstance(type, objargs);
+                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                var configHandler = (AdaptiveConsoleConfiguration) config.GetSection("AdaptiveConsole");
+                return GetApplication(configHandler, args);
+            }
+            catch (AdaptiveConsoleException)
+            {
+                throw;
+            }
+            catch (Exception e)
+            {
+                throw new AdaptiveConsoleException(AdaptiveConsoleException.GENERAL_EXCEPTION_MESSAGE, e);
+            }
+            
+        }
+
+        private static ConsoleApplicationBase GetApplication(AdaptiveConsoleConfiguration configuration, string[] args)
+        {
+            try
+            {
+                var type = Type.GetType(configuration.Provider);
+                var objargs = new object[] { configuration, args };
+                return (ConsoleApplicationBase) Activator.CreateInstance(type, objargs);
             }
             catch (Exception e)
             {
@@ -61,6 +90,18 @@ namespace AdaptiveConsole
             consoleApplication.Done();
         }
 
+        /// <summary>
+        /// Runs the application.
+        /// </summary>
+        /// <param name="configuration">The configuration.</param>
+        /// <param name="args">The arguments.</param>
+        public static void RunApplication(AdaptiveConsoleConfiguration configuration, string[] args)
+        {
+            var consoleApplication = GetApplication(configuration, args);
+            consoleApplication.Init();
+            consoleApplication.Run();
+            consoleApplication.Done();
+        }
         //public static void RunApplication()
         #endregion
     }

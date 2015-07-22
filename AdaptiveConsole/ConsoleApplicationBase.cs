@@ -15,7 +15,7 @@
  * 9/20/2008     Added Default field on the option.     3.5.3182.35766  Sunny Chen
  * 9/23/2008     BUG FIX #1                             3.5.3189.17673  Sunny Chen
  * 11/27/2008    Modified                               3.5.3253.15384  Sunny Chen
- * 7/18/2015     Refactored                             4.5             Sunny Chen
+ * 7/18/2015     Refactored                             4.5.5681.19881  Sunny Chen
  * ---------------------------------------------------------------------------- */
 
 using System;
@@ -317,7 +317,7 @@ namespace AdaptiveConsole
                 //    }
                 //}
                 object[] customAttributes = property.GetCustomAttributes(typeof(OptionAttribute), false);
-                if (customAttributes != null && customAttributes.Length > 0)
+                if (customAttributes.Length > 0)
                 {
                     OptionAttribute optionAttribute = customAttributes.First() as OptionAttribute;
                     handler(optionContract, property, optionAttribute);
@@ -549,7 +549,7 @@ namespace AdaptiveConsole
                             var query = from exactArgument in exactArgumentSet
                                         where exactArgument.ToUpper().Equals(argument.ToUpper())
                                         select exactArgument;
-                            if (query.Count() > 0)
+                            if (query.Any())
                                 throw new InvalidContractException("The exact contract with the argument of {0} already exists.", argument);
                             else
                                 exactArgumentSet.Add(argument);
@@ -831,7 +831,7 @@ namespace AdaptiveConsole
                 //}
 
                 IList<Assembly> assemblies = new List<Assembly>();
-                foreach (RepositoryConfigElement repositoryConfig in this.AdaptiveConsoleConfig.Repositories)
+                foreach (ContractRepositoryElement repositoryConfig in this.AdaptiveConsoleConfig.Repositories)
                 {
                     try
                     {

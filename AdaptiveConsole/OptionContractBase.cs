@@ -78,7 +78,7 @@ namespace AdaptiveConsole
                 //            select attribute;
                 //return query.First() as OptionContractAttribute;
                 object[] customAttributes = type.GetCustomAttributes(typeof(OptionContractAttribute), false);
-                if (customAttributes != null && customAttributes.Length > 0)
+                if (customAttributes.Length > 0)
                 {
                     return (customAttributes.First() as OptionContractAttribute);
                 }
@@ -104,7 +104,7 @@ namespace AdaptiveConsole
                     //    }
                     //}
                     object[] customAttributes = property.GetCustomAttributes(typeof(OptionAttribute), false);
-                    if (customAttributes != null && customAttributes.Length > 0)
+                    if (customAttributes.Length > 0)
                     {
                         ret.Add(customAttributes.First() as OptionAttribute);
                     }

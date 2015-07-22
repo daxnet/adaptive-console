@@ -174,17 +174,7 @@ namespace AdaptiveConsole
         #endregion
 
         #region Constructors
-        /// <summary>
-        /// Initializes the attribute with default values.
-        /// </summary>
-        public OptionContractAttribute()
-        {
-            //this.Type = ContractType.Patternized;
-            //this.Argument = string.Empty;
-            //this.CaseSensitive = false;
-            //this.Description = string.Empty;
-            //this.Parameters = -1;
-        }
+
         #endregion
     }
 }

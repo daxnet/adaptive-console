@@ -231,21 +231,7 @@ namespace AdaptiveConsole
         #endregion
 
         #region Constructors
-        /// <summary>
-        /// Initializes the attribute with the default values.
-        /// </summary>
-        public OptionAttribute()
-        {
-            //this.Name = string.Empty;
-            //this.Description = string.Empty;
-            //this.Type = OptionType.SingleValue;
-            //this.Required = true;
-            //this.CaseSensitive = false;
-            //this.ValueSeparator = ',';
-            //// Sunny Chen Added Begin - 9/20/2008 - Added for handling the Default field on the option.
-            //this.Default = string.Empty;
-            //// Sunny Chen Added End
-        }
+
         #endregion
     }
 }

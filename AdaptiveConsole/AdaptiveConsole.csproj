@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AdaptiveConsole</RootNamespace>
     <AssemblyName>AdaptiveConsole</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
@@ -19,6 +19,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
     <NoWarn>1607</NoWarn>
     <DocumentationFile>bin\Debug\AdaptiveConsole.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -40,6 +42,7 @@
     <WarningLevel>4</WarningLevel>
     <NoWarn>1607</NoWarn>
     <DocumentationFile>bin\Release\AdaptiveConsole.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -61,9 +64,11 @@
   <ItemGroup>
     <Compile Include="ArgumentInfo.cs" />
     <Compile Include="ArgumentMissingException.cs" />
-    <Compile Include="Config\AdaptiveConsoleConfiguration.cs" />
-    <Compile Include="Config\RepositoryConfigElement.cs" />
-    <Compile Include="Config\RepositoryConfigElementCollection.cs" />
+    <Compile Include="Config\AdaptiveConsoleConfiguration.csd.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdaptiveConsoleConfiguration.csd</DependentUpon>
+    </Compile>
     <Compile Include="ConsoleApplicationBase.cs" />
     <Compile Include="ConsoleApplicationManager.cs" />
     <Compile Include="AdaptiveConsoleException.cs" />
@@ -78,10 +83,28 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Config\AdaptiveConsoleConfiguration.csd">
+      <Generator>CsdFileGenerator</Generator>
+      <LastGenOutput>AdaptiveConsoleConfiguration.csd.cs</LastGenOutput>
+    </None>
+    <None Include="Config\AdaptiveConsoleConfiguration.csd.config">
+      <DependentUpon>AdaptiveConsoleConfiguration.csd</DependentUpon>
+    </None>
+    <None Include="Config\AdaptiveConsoleConfiguration.csd.diagram">
+      <DependentUpon>AdaptiveConsoleConfiguration.csd</DependentUpon>
+    </None>
+    <None Include="Config\AdaptiveConsoleConfiguration.csd.xsd">
+      <DependentUpon>AdaptiveConsoleConfiguration.csd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="key.snk" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="history.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,5 @@
 ﻿using AdaptiveConsole;
+using AdaptiveConsole.Config;
 
 namespace Catool.Provider
 {
@@ -22,5 +23,9 @@ namespace Catool.Provider
         }
 
         public CatoolApplication(string[] args) : base(args) { }
+
+        public CatoolApplication(AdaptiveConsoleConfiguration configuration, string[] args) : base(configuration, args)
+        {
+        }
     }
 }

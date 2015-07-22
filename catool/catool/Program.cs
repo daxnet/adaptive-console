@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Configuration;
 using AdaptiveConsole;
+using AdaptiveConsole.Config;
+using Catool.Contracts;
+using Catool.Provider;
 
 namespace catool
 {
@@ -7,6 +11,15 @@ namespace catool
     {
         static void Main(string[] args)
         {
+            //var configuration = new AdaptiveConsoleConfiguration();
+            //configuration.Provider = typeof (CatoolApplication).AssemblyQualifiedName;
+            //configuration.Repositories = new ContractRepositoryElementCollection();
+            //configuration.Repositories.Add(new ContractRepositoryElement
+            //{
+            //    Assembly = typeof(CalculationContract).Assembly.FullName,
+            //    Name = "Contracts"
+            //});
+            
             try
             {
                 ConsoleApplicationManager.RunApplication(args);

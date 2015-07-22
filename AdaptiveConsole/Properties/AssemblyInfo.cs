@@ -12,6 +12,7 @@
  * ----------------------------------------------------------------------------
  * DATE          DESCRIPTION                            VERSION         UPDATED_BY
  * 9/16/2008     Created                                3.5.3182.35766  Sunny Chen
+ * 7/22/2015     Modified - Copyright information.      4.5.5681.19881  Sunny Chen
  * ---------------------------------------------------------------------------- */
 
 using System.Reflection;
@@ -26,10 +27,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Adaptive Console Framework")]
 [assembly: AssemblyDescription("A flexable console application framework.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("SunnyChen.ORG")]
+[assembly: AssemblyCompany("daxnet")]
 [assembly: AssemblyProduct("AdaptiveConsole")]
-[assembly: AssemblyCopyright("Copyright © 2007-2008, SunnyChen.ORG, all rights reserved.")]
-[assembly: AssemblyTrademark("AdaptiveConsole, SunnyChen.ORG")]
+[assembly: AssemblyCopyright("Copyright © 2007-2015, daxnet, all rights reserved.")]
+[assembly: AssemblyTrademark("AdaptiveConsole, daxnet")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
@@ -51,7 +52,7 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("3.5.3286.17617")]
-[assembly: AssemblyFileVersion("3.5.0.0")]
+[assembly: AssemblyVersion("4.5.5681.28730")]
+[assembly: AssemblyFileVersion("4.5.0.0")]
 
 
