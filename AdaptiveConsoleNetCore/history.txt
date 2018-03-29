@@ -1,0 +1,15 @@
+﻿VERSION: 3.5.3286.17617		DATE: 12/30/2008
+1. Component Model features added to the OptionAttribute and OptionContractAttribute
+2. Design Model features (Property changing event handling) added
+
+VERSION: 3.5.3253.15384		DATE: 11/27/2008
+1. Performance improved
+2. Multiple contract repository is now supported
+3. Samples added
+4. Banner and help screen can now be customized by using templates
+
+VERSION: 3.5.3189.17673		DATE: 9/24/2008
+BUG FIX #1: Bug fix with the issue that parameters are not shown in the syntax line.
+
+VERSION: 3.5.3183.35766		DATE: 9/16/2008
+First release
