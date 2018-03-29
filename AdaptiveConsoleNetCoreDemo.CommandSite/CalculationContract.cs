@@ -19,10 +19,10 @@ namespace AdaptiveConsoleNetCoreDemo.CommandSite
                 Name = "/method;/m",
                 Type = OptionType.SingleValue,
                 Description = "Specifies the calculation method\n" +
-                            "\t\tadd: Performs an addition calculation\n" +
-                            "\t\tsub: Performs a subtraction calculation\n" +
-                            "\t\tmul: Performs a multiplication calculation\n" +
-                            "\t\tdiv: Performs a division calculation",
+                            "    add: Performs an addition calculation\n" +
+                            "    sub: Performs a subtraction calculation\n" +
+                            "    mul: Performs a multiplication calculation\n" +
+                            "    div: Performs a division calculation",
                 Required = true)
         ]
         public string Method { get; set; }

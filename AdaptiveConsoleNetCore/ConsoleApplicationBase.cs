@@ -765,17 +765,17 @@ namespace AdaptiveConsole
         /// <summary>
         /// Gets the full file name of the console application.
         /// </summary>
-        public string ApplicationFullName
+        public virtual string ApplicationFullName
         {
-            get { return Process.GetCurrentProcess().MainModule.FileName; }
+            get { return this.entryAssembly.FullName; }
         }
 
         /// <summary>
         /// Gets the file name of the console application.
         /// </summary>
-        public string ApplicationName
+        public virtual string ApplicationName
         {
-            get { return Path.GetFileName(ApplicationFullName); }
+            get { return this.entryAssembly.GetName().Name; }
         }
 
         #endregion

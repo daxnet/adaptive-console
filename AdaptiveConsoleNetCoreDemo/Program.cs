@@ -1,5 +1,8 @@
 ﻿using AdaptiveConsole;
 using System;
+using System.Reflection;
+
+// [assembly:AssemblyCopyright("Copyright (C) by daxnet, 2018.")]
 
 namespace AdpativeConsoleNetCoreDemo
 {

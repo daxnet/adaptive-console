@@ -143,7 +143,7 @@ namespace AdaptiveConsole
                         sb.Append(string.Format("  {0}", attrib.Description));
                         break;
                     case ContractType.Exact:
-                        sb.Append(string.Format("  {0}:\n\t{1}", attrib.Argument.Replace(ConsoleApplicationBase.OPTION_CONTRACT_ARGUMENT_SEP, '|'),
+                        sb.Append(string.Format("  {0}:\n  {1}", attrib.Argument.Replace(ConsoleApplicationBase.OPTION_CONTRACT_ARGUMENT_SEP, '|'),
                             attrib.Description));
                         break;
                     default:
@@ -158,19 +158,19 @@ namespace AdaptiveConsole
                                     switch (oa.Type)
                                     {
                                         case OptionType.Switch:
-                                            sb.Append(string.Format("  [{0}]:\n\t", oa.Name.Replace(ConsoleApplicationBase.OPTION_ATTRIBUTE_NAME_SEP, '|')));
+                                            sb.Append(string.Format("  [{0}]:\n  ", oa.Name.Replace(ConsoleApplicationBase.OPTION_ATTRIBUTE_NAME_SEP, '|')));
                                             break;
                                         case OptionType.SingleValue:
                                             if (oa.Required)
-                                                sb.Append(string.Format("  {0}:value (required):\n\t", oa.Name.Replace(ConsoleApplicationBase.OPTION_ATTRIBUTE_NAME_SEP, '|')));
+                                                sb.Append(string.Format("  {0}:value (required):\n  ", oa.Name.Replace(ConsoleApplicationBase.OPTION_ATTRIBUTE_NAME_SEP, '|')));
                                             else
-                                                sb.Append(string.Format("  {0}:value :\n\t", oa.Name.Replace(ConsoleApplicationBase.OPTION_ATTRIBUTE_NAME_SEP, '|')));
+                                                sb.Append(string.Format("  {0}:value :\n  ", oa.Name.Replace(ConsoleApplicationBase.OPTION_ATTRIBUTE_NAME_SEP, '|')));
                                             break;
                                         default:
                                             if (oa.Required)
-                                                sb.Append(string.Format("  {0}:v1[,v2[,v3]] (required):\n\t", oa.Name.Replace(ConsoleApplicationBase.OPTION_ATTRIBUTE_NAME_SEP, '|')));
+                                                sb.Append(string.Format("  {0}:v1[,v2[,v3]] (required):\n  ", oa.Name.Replace(ConsoleApplicationBase.OPTION_ATTRIBUTE_NAME_SEP, '|')));
                                             else
-                                                sb.Append(string.Format("  {0}:v1[,v2[,v3]] :\n\t", oa.Name.Replace(ConsoleApplicationBase.OPTION_ATTRIBUTE_NAME_SEP, '|')));
+                                                sb.Append(string.Format("  {0}:v1[,v2[,v3]] :\n  ", oa.Name.Replace(ConsoleApplicationBase.OPTION_ATTRIBUTE_NAME_SEP, '|')));
                                             break;
                                     }
                                     sb.Append(oa.Description);

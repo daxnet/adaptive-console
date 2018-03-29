@@ -10,16 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Help File Builder Projects"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptiveConsole", "AdaptiveConsole\AdaptiveConsole.csproj", "{37F25256-762E-4B04-9B6E-9D2E77DC9102}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptiveConsoleNetCore", "AdaptiveConsoleNetCore\AdaptiveConsoleNetCore.csproj", "{E6251959-8653-4AD0-A788-17453E22D8D3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdpativeConsoleNetCoreDemo", "AdpativeConsoleNetCoreDemo\AdpativeConsoleNetCoreDemo.csproj", "{6C760B5A-410E-448D-A7A2-7CD63C9698A6}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9515E1BD-639E-4A8F-8E38-08C2ABCBE65A} = {9515E1BD-639E-4A8F-8E38-08C2ABCBE65A}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdaptiveConsoleNetCore", "AdaptiveConsoleNetCore\AdaptiveConsoleNetCore.csproj", "{E6251959-8653-4AD0-A788-17453E22D8D3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetCoreDemo", "NetCoreDemo", "{FB91738E-F393-4815-8307-9667F650CCA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptiveConsoleNetCoreDemo.CommandSite", "AdaptiveConsoleNetCoreDemo.CommandSite\AdaptiveConsoleNetCoreDemo.CommandSite.csproj", "{9515E1BD-639E-4A8F-8E38-08C2ABCBE65A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdaptiveConsoleNetCoreDemo.CommandSite", "AdaptiveConsoleNetCoreDemo.CommandSite\AdaptiveConsoleNetCoreDemo.CommandSite.csproj", "{9515E1BD-639E-4A8F-8E38-08C2ABCBE65A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdaptiveConsoleNetCoreDemo", "AdaptiveConsoleNetCoreDemo\AdaptiveConsoleNetCoreDemo.csproj", "{BB173559-E160-4642-871F-4EC6FAA1B4BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,21 +32,21 @@ Global
 		{E6251959-8653-4AD0-A788-17453E22D8D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6251959-8653-4AD0-A788-17453E22D8D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6251959-8653-4AD0-A788-17453E22D8D3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C760B5A-410E-448D-A7A2-7CD63C9698A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C760B5A-410E-448D-A7A2-7CD63C9698A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C760B5A-410E-448D-A7A2-7CD63C9698A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C760B5A-410E-448D-A7A2-7CD63C9698A6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9515E1BD-639E-4A8F-8E38-08C2ABCBE65A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9515E1BD-639E-4A8F-8E38-08C2ABCBE65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9515E1BD-639E-4A8F-8E38-08C2ABCBE65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9515E1BD-639E-4A8F-8E38-08C2ABCBE65A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB173559-E160-4642-871F-4EC6FAA1B4BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB173559-E160-4642-871F-4EC6FAA1B4BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB173559-E160-4642-871F-4EC6FAA1B4BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB173559-E160-4642-871F-4EC6FAA1B4BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{6C760B5A-410E-448D-A7A2-7CD63C9698A6} = {FB91738E-F393-4815-8307-9667F650CCA1}
 		{9515E1BD-639E-4A8F-8E38-08C2ABCBE65A} = {FB91738E-F393-4815-8307-9667F650CCA1}
+		{BB173559-E160-4642-871F-4EC6FAA1B4BF} = {FB91738E-F393-4815-8307-9667F650CCA1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0E5BF038-4636-4D50-AAAF-A15E46D13AC8}
